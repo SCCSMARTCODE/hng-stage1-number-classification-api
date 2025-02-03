@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import os
 
-from utils import NumberAnalyzer
+from app.utils import NumberAnalyzer
 
 load_dotenv()
 
