@@ -30,7 +30,9 @@ async def read_root():
 
 @app.get("/api/classify-number", status_code=status.HTTP_200_OK)
 def classify_number(number: str, response: Response):
-    if not number.isdigit():
+    try:
+        n = int(number)
+    except ValueError:
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {
             "number": "alphabet",
@@ -41,14 +43,14 @@ def classify_number(number: str, response: Response):
     result = requests.get(os.getenv('NumbersAPI_URL').format(number), headers=headers)
     if result.status_code == status.HTTP_200_OK:
 
-        analysis_result = NumberAnalyzer(int(number)).result
+        analysis_result = NumberAnalyzer(n).result
 
         properties = [analysis_result.get("type")]
         if analysis_result.get("armstrong"):
             properties.insert(0, "armstrong")
 
         return {
-                "number": int(number),
+                "number": n,
                 "is_prime": analysis_result.get("prime"),
                 "is_perfect": analysis_result.get("perfect"),
                 "properties": properties,
