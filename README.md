@@ -38,13 +38,13 @@ The API is built with a focus on clean code, proper error handling, and efficien
 
 ## Technologies Used
 
-- **Programming Language/Framework:** Python with FastAPI (or your chosen stack).
+- **Programming Language/Framework:** Python with FastAPI.
 - **Deployment:** Deployed to a publicly accessible endpoint.
 - **Version Control:** Git & GitHub.
 - **Additional Libraries:** 
-  - `requests` or an equivalent HTTP client (if needed to call the Numbers API)
+  - `requests` or an equivalent HTTP client
   - `uvicorn` for serving the app.
-  - Environment management using `python-dotenv` (if applicable).
+  - Environment management using `python-dotenv`
 
 ## API Specification
 
@@ -76,8 +76,7 @@ GET https://your-domain.com/api/classify-number?number=371
 ```json
 {
     "number": "alphabet",
-    "error": true,
-    "message": "Invalid input. Please provide a valid integer."
+    "error": true
 }
 ```
 
@@ -86,8 +85,7 @@ GET https://your-domain.com/api/classify-number?number=371
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/hng-stage1-number-classification-api.git
-   cd hng-stage1-number-classification-api
+   git clone https://github.com/SCCSMARTCODE/hng-stage1-number-classification-api.git
    ```
 
 2. **Create and Activate a Virtual Environment:**
@@ -105,7 +103,7 @@ GET https://your-domain.com/api/classify-number?number=371
 
 4. **Set Up Environment Variables:**
 
-   Create a `.env` file in the root directory and add your environment-specific variables if required (for example, API keys if needed).
+   Create a `.env` file in the root directory and add `NumbersAPI_URL="http://numbersapi.com/{}"` .
 
 5. **Run the Application:**
 
@@ -124,18 +122,6 @@ GET https://your-domain.com/api/classify-number?number=371
    curl -X GET "http://localhost:8000/api/classify-number?number=371"
    ```
 
-## Testing
-
-- Ensure to write unit tests (in the `tests/` directory) to cover:
-  - Valid input responses.
-  - Invalid input handling.
-  - Integration with the Numbers API.
-
-- Run tests with:
-
-   ```bash
-   pytest
-   ```
 
 ## Deployment
 
