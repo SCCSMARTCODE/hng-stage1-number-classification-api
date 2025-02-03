@@ -55,7 +55,7 @@ The API is built with a focus on clean code, proper error handling, and efficien
 ### Example Request
 
 ```
-GET https://your-domain.com/api/classify-number?number=371
+GET https://hng-stage1-number-classification-api-jiol.vercel.app/api/classify-number?number=371
 ```
 
 ### Example Response (200 OK)
@@ -126,7 +126,7 @@ GET https://your-domain.com/api/classify-number?number=371
 ## Deployment
 
 The API is deployed on [Your Deployment Platform] and is accessible at:  
-`https://your-deployment-domain.com/api/classify-number`
+`https://hng-stage1-number-classification-api-jiol.vercel.app/`
 
 Make sure to update the deployment settings as required and verify that CORS is enabled and that the response times meet the requirements (< 500ms).
 
