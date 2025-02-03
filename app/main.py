@@ -19,7 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/", status_code=status.HTTP_200_OK)
+@app.get("/api/classify-number", status_code=status.HTTP_200_OK)
 def root(number: str, response: Response):
     if not number.isdigit():
         response.status_code = status.HTTP_400_BAD_REQUEST
@@ -48,4 +48,4 @@ def root(number: str, response: Response):
             }
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", host="127.0.0.1", port=8001, log_level="info", reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, log_level="info", reload=True)
