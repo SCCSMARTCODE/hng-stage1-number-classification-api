@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Response, status
+from pydantic import BaseModel
 import requests
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,8 +20,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+class Greeting(BaseModel):
+    message: str
+
+# Define the home route
+@app.get("/", response_model=Greeting)
+async def read_root():
+    return Greeting(message="Hello, welcome to the FastAPI app!")
+
 @app.get("/api/classify-number", status_code=status.HTTP_200_OK)
-def root(number: str, response: Response):
+def classify_number(number: str, response: Response):
     if not number.isdigit():
         response.status_code = status.HTTP_400_BAD_REQUEST
         return {
